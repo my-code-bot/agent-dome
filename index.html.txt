@@ -1,0 +1,189 @@
+明白，我可以帮你生成一个完整的单页 HTML 演示页面，风格与之前的 VS Code/终端截图一致，内容完全对应你提供的日志、重构示例和效能数据。下面是示例代码：  
+
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 代码重构 Agent 在线演示</title>
+<style>
+  /* 全局样式 */
+  body {
+    margin: 0;
+    font-family: "Fira Code", Consolas, monospace;
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+  }
+  a { color: #569cd6; text-decoration: none; }
+
+  /* 顶部标题栏 */
+  header {
+    background-color: #252526;
+    padding: 20px;
+    border-bottom: 1px solid #333;
+  }
+  header h1 {
+    margin: 0;
+    font-size: 1.8em;
+    color: #ffffff;
+  }
+  header p {
+    margin: 4px 0 0;
+    font-size: 0.9em;
+    color: #bbbbbb;
+  }
+
+  /* 核心演示区 */
+  .demo-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+  }
+  .code-box {
+    flex: 1;
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding: 10px;
+    overflow: auto;
+    height: 400px;
+    font-size: 0.9em;
+  }
+  .code-box pre {
+    margin: 0;
+    white-space: pre-wrap;
+  }
+  .highlight {
+    background-color: #264f78;
+  }
+
+  /* 日志面板 */
+  .log-panel {
+    background-color: #1e1e1e;
+    border-top: 1px solid #333;
+    padding: 15px;
+    font-size: 0.85em;
+    height: 180px;
+    overflow-y: auto;
+  }
+  .log-panel .success {
+    color: #6a9955;
+  }
+
+  /* 数据看板 */
+  .stats-panel {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    border-top: 1px solid #333;
+  }
+  .stat {
+    flex: 1;
+    background-color: #252526;
+    border-radius: 5px;
+    padding: 15px;
+    text-align: center;
+  }
+  .stat h2 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #ffffff;
+  }
+  .stat p {
+    margin: 5px 0 0;
+    color: #bbbbbb;
+  }
+
+  /* 底部信息 */
+  footer {
+    padding: 20px;
+    border-top: 1px solid #333;
+    font-size: 0.85em;
+    color: #aaaaaa;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>CodeRefactor Agent - 自动化代码重构工具</h1>
+  <p>基于Claude 3.5 Sonnet，一键扫描技术债、生成重构PR</p>
+</header>
+
+<main>
+  <section class="demo-container">
+    <div class="code-box">
+      <h3>旧代码示例</h3>
+      <pre>
+def process_payments(payments):
+    for payment in payments:
+        if payment.amount &gt; 1000:
+            print("Processing high-value payment")
+        # TODO: 异常处理缺失
+    for payment in payments:
+        print(payment.id)
+      </pre>
+    </div>
+    <div class="code-box">
+      <h3>Agent重构结果</h3>
+      <pre>
+def process_payments(payments):
+    for payment in payments:
+        try:
+            if payment.amount &gt; 1000:
+                print("Processing high-value payment")
+        except Exception as e:
+            print(f"Error processing payment {payment.id}: {e}")<span class="highlight">  # 自动优化异常处理</span>
+    for payment in payments:
+        print(payment.id) <span class="highlight">  # 重构循环逻辑</span>
+      </pre>
+    </div>
+  </section>
+
+  <section class="log-panel">
+    <p>[1/4] 解析项目结构...完成（耗时2s）</p>
+    <p>[2/4] 扫描技术债...完成（耗时6s）</p>
+    <p>[3/4] 生成重构方案...完成（耗时5s）</p>
+    <p>[4/4] 生成PR...完成（耗时3s）</p>
+    <p class="success">任务执行完成，耗时18s，总消耗tokens: 5238</p>
+  </section>
+
+  <section class="stats-panel">
+    <div class="stat">
+      <h2>32</h2>
+      <p>本周处理PR数量</p>
+    </div>
+    <div class="stat">
+      <h2>18分钟</h2>
+      <p>平均审查耗时</p>
+    </div>
+    <div class="stat">
+      <h2>97%</h2>
+      <p>规范问题修复率</p>
+    </div>
+    <div class="stat">
+      <h2>42小时</h2>
+      <p>累计节省人工时间</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  本工具为内部自动化开发Agent，支持代码审查、技术债修复、单元测试闭环验证，已在15人研发团队落地。
+</footer>
+
+</body>
+</html>
+```
+
+这个页面特点：  
+- 深色主题，与 VS Code/终端截图风格一致  
+- 左右对比「旧代码/重构代码」，修改部分高亮显示  
+- 模拟日志面板与截图日志一致  
+- 数据看板和截图完全匹配  
+- 单页 HTML，可直接复制部署  
+
+如果你愿意，我可以帮你**再加一个动态效果**：日志自动逐行滚动输出，看起来像真实运行时终端。  
+
+你希望加吗？
